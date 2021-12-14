@@ -13,10 +13,10 @@ int toInt(char str){
 }
 
 
-void minSequenceGematria(char[] str, int size){
+void minSequenceGematria(char str[], int size){
     int i,j,k,sum=0;
-    for(i=0; i<sizeof(str); i++){
-        for(j=i; j<sizeof(str); j++){
+    for(i=0; i<(sizeof(str)/sizeof(str[0])); i++){
+        for(j=i; j<(sizeof(str)/sizeof(str[0])); j++){
             sum=sum+toInt(str[j]);
             if(sum>size) 
                 break;
@@ -31,9 +31,9 @@ void minSequenceGematria(char[] str, int size){
     }
 }
 
-void gematria(word, sentence){
+void gematria(char word[], char sentence[]){
     int word_size =0;
-    for (int i = 0; i < sizeof(word); i++){
+    for (int i = 0; i < sizeof(word)/sizeof(word[0]); i++){
        word_size += toInt(word[i]);
     }
     printf("Gematria Sequences: ");
@@ -43,14 +43,72 @@ void gematria(word, sentence){
 
 
 char toAtbash(char c){
+  if( (c<65||c>122) || (c>90 && c<97) )
+    return c;
   if(c<90)
         return 90-(c-'A');
     else
         return 122-(c-'a');    
 }
 
+void minSequenceAtbash(char sentence[], char word[]){
+    int i,j,k;
+    for(i=0; i<(sizeof(sentence)/sizeof(sentence[0]));i++){
+        k=0;
+        for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
+            if (sentence[j]==word[k]){
+                     k++;                
+                if (k==sizeof(word)/sizeof(word[0])){
+                    for (k=i; k<j; k++)
+                       printf("%c", sentence[k]);
+                    printf("~");
+                    break;   
+                }
+            }else{
+                if(sentence[j] == ' '){
+                    if(i==j)
+                        break;
+                    else
+                        continue;
+                }else
+                    break;
+            }
+        }
+        k=sizeof(word)/sizeof(word[0])-1;
+        for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
+            if (sentence[j]==word[k]){
+                     k--;                
+                if (k==0){
+                    for (k=i; k<j; k++)
+                       printf("%c", sentence[k]);
+                    printf("~");
+                    break;   
+                }
+            }else{
+                if(sentence[j] == ' '){
+                    if(i==j)
+                        break;
+                    else
+                        continue;
+                }else
+                    break;
+            }
+        }
+    }
+}
+
+void atbash(char sentence[], char word[]){
+    printf("Atbash Sequences : ");
+    char atbash[sizeof(word)/sizeof(word[0])];
+    for (int i = 0; i < (sizeof(word)/sizeof(word[0])); i++){
+        atbash[i] = toAtbash(word[i]);
+    }
+    minSequenceAtbash(sentence, atbash);
+    printf("\n");
+}
+
 
 
 int main(){
-
+// we should change the ~ printing from the end to the begining and not printing before the first time!
 }
