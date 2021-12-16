@@ -128,22 +128,21 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
     char wordCopy[wordSize];
     int count = 0, areEquals = 1;
     for (int i = 0; i < sentenceSize-wordSize+1; i++){
-        printf("i = %d\n",i);
+     //   printf("i = %d\n",i);
         if(sentence[i] == ' '){
-            printf("\n%c,%s\n", sentence[i], sentence);
+           // printf("\n%c,%s\n", sentence[i], sentence);
             continue;
             }
         textCopy(wordCopy, word, wordSize);
         int wscopy = wordSize;
         for (int j = i; j < i+wscopy; j++){
-            printf("j = %d\n", j);
+           // printf("j = %d\n", j);
             if(sentence[j] == ' '){
-                printf("j is: a ' '");
                 wscopy++;
                 continue;
             }
             for (int k = 0; k < wordSize; k++){
-                printf("k = %d\n", k);
+              //  printf("k = %d\n", k);
                 if(wordCopy[k] == sentence[j])
                     wordCopy[k] = '~';
             } 
@@ -157,7 +156,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
                 printf("~");
             else
                 count++;
-            for (int k=i; k<wordSize; k++)
+            for (int k=i; k<wordSize+i; k++)
                 printf("%c", sentence[k]);
         }
         areEquals =1;
