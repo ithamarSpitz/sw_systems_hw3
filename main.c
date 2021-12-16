@@ -186,9 +186,7 @@ int main (void) {
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
     printf("atbash ends\n");
-    if( wordSize!=ws
-     || ss!=idx
-      || wl != word
+    if(wl != word
        || sl != sentence)
         printf("this is the problem");
     anagram(word, wordSize, sentence, idx);
