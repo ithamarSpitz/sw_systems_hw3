@@ -185,14 +185,14 @@ int main (void) {
     char *sl = sentence;
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
-    printf("atbash ends\n");
-    if(wordSize==ws)
+    printf("atbash ends\n %d", wordSize);
+    if(wordSize!=ws)
         printf("this is not the problem");
-    if(ss==idx)
+    if(ss!=idx)
         printf("this is not the problem");
-    if(wl == word)
+    if(wl != word)
         printf("this is not the problem");
-    if(sl == sentence)
+    if(sl != sentence)
         printf("this is not the problem");
     anagram(word, wordSize, sentence, idx);
     return 0;
