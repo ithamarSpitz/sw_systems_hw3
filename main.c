@@ -53,8 +53,8 @@ char toAtbash(char c){
 }
 
 void minSequenceAtbash(char sentence[], char word[]){
-    printf("\nsize of word in atbash is: %d\n", sizeof(word)/sizeof(word[0]);
-    printf("\nsize of sentence in atbash is: %d\n", sizeof(sentence)/sizeof(sentence[0]);
+    printf("\nsize of word in atbash is: %d\n", sizeof(word)/sizeof(word[0]));
+    printf("\nsize of sentence in atbash is: %d\n", sizeof(sentence)/sizeof(sentence[0]));
     int i,j,k,count=0;
     for(i=0; i<(sizeof(sentence)/sizeof(sentence[0]));i++){
         k=0;
