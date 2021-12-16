@@ -16,6 +16,7 @@ void minSequenceGematria(char sentence[], int sentenceSize, int gematria){
     for(i=0; i<sentenceSize; i++){
         for(j=i; j<sentenceSize; j++){
             sum=sum+toInt(sentence[j]);
+            printf("sum is: %d", sum);
             if(sum>gematria) 
                 break;
             if(sum==gematria){
