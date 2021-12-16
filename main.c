@@ -130,13 +130,13 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
     int count = 0, areEquals = 1;
     for (int i = 0; i < sentenceSize-wordSize+1; i++){
         count++;
-        textCopy(wordCopy, word, wordSize);
+        /* textCopy(wordCopy, word, wordSize);
         for (int j = i; j < wordSize; i++){
             for (int k = 0; k < wordSize; k++){
                 if(wordCopy[k] == sentence[j])
                     wordCopy[k] = '~';
             } 
-        }
+        }*/
         for (int q = 0; q < wordSize; q++){
             if(wordCopy[q] != '~')
                 areEquals = 0;
@@ -154,7 +154,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
 void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("enter anagram");
     printf("Anagram Sequences : ");
-    //minSequenceAnagram(word, wordSize, sentence, sentenceSize);
+    minSequenceAnagram(word, wordSize, sentence, sentenceSize);
     printf("\n");
 }
 
