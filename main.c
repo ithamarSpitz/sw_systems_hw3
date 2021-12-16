@@ -185,9 +185,7 @@ int main (void) {
     char *sl = sentence;
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
-    printf("atbash ends\n %d", wordSize);
-    if(wordSize!=ws)
-        printf("this is not the problem");
+    printf("atbash ends\n");
     if(ss!=idx)
         printf("this is not the problem");
     if(wl != word)
