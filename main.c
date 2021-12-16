@@ -53,6 +53,8 @@ char toAtbash(char c){
 }
 
 void minSequenceAtbash(char sentence[], char word[]){
+    printf("\nsize of word in atbash is: %d\n", sizeof(word)/sizeof(word[0]);
+    printf("\nsize of sentence in atbash is: %d\n", sizeof(sentence)/sizeof(sentence[0]);
     int i,j,k,count=0;
     for(i=0; i<(sizeof(sentence)/sizeof(sentence[0]));i++){
         k=0;
@@ -126,7 +128,7 @@ int main (void) {
         preword[idx] = letter;
         idx++;
         }
-    printf("index is: %d", idx);
+    printf("\nindex is: %d\n", idx);
     char word[idx];
     for (int i = 0; i < idx; i++)
        word[i] = preword[i];
@@ -135,7 +137,7 @@ int main (void) {
         presentence[idx] = letter;
         idx++;
         }
-    printf("index is: %d", idx);
+    printf("\nindex is: %d\n", idx);
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
