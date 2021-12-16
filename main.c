@@ -40,7 +40,6 @@ void gematria(char word[], int wordSize, char sentence[], int sentenceSize){
     for (int i = 0; i < wordSize; i++){
        word_gematria += toInt(word[i]);
     }
-    printf("word's gematria is: %d\n", word_gematria);
     printf("Gematria Sequences: ");
     minSequenceGematria(sentence, sentenceSize, word_gematria);
     printf("\n");
@@ -129,7 +128,6 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
     char wordCopy[wordSize];
     int count = 0, areEquals = 1;
     for (int i = 0; i < sentenceSize-wordSize+1; i++){
-        count++;
         textCopy(wordCopy, word, wordSize);
         for (int j = i; j < wordSize; j++){
             for (int k = 0; k < wordSize; k++){
@@ -144,6 +142,8 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
         if(areEquals){
             if(count)
                 printf("~");
+            else
+                count++;
             for (int k=i; k<wordSize; k++)
                 printf("%c", sentence[k]);
         }
