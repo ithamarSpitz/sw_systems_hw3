@@ -131,10 +131,11 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
         if(sentence[i] == ' ')
             continue;
         textCopy(wordCopy, word, wordSize);
-        for (int j = i; j < wordSize; j++){
+        int wscopy = wordSize;
+        for (int j = i; j < wscopy; j++){
             if(sentence[j] == ' '){
                 printf("j is: a ' '");
-                wordSize++;
+                wscopy++;
                 continue;
             }
             for (int k = 0; k < wordSize; k++){
