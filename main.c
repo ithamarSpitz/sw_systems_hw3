@@ -58,7 +58,9 @@ void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceS
     int i,j,k,count=0;
     for(i=0; i<sentenceSize;i++){
         k=0;
+        printf("\n i=%d\n", i);
         for (j = i; j <sentenceSize; j++){
+            printf("j=%d\n", j);
             if (sentence[j]==word[k]){
                      k++;
                 if (k==wordSize){
@@ -80,12 +82,12 @@ void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceS
                     break;
             }
         }
-        count=0;
         k=wordSize-1;
         for (j = i; j < sentenceSize; j++){
+            printf("j=%d\n", j);
             if (sentence[j]==word[k]){
                      k--;                
-                if (k==0){
+                if (k==-1){
                     if(count==0)
                         count++;
                     else
@@ -108,12 +110,12 @@ void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceS
 }
 
 void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
-    printf("Atbash Sequences : ");
     char atbash[wordSize];
     for (int i = 0; i < wordSize; i++){
         atbash[i] = toAtbash(word[i]);
     }
-    printf("atbash is: %s", atbash);
+    printf("atbash is: %s\n", atbash);
+    printf("Atbash Sequences : ");
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
 }
