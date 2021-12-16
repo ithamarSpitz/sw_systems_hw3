@@ -181,5 +181,6 @@ int main (void) {
     //printf("word is: \n %s \n size of word is: %d \n sentence is: \n %s \n sizeof sentence is: %d\n", word, wordSize, sentence, idx);
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
+    anagram(word, wordSize, sentence, idx);
     return 0;
 }
