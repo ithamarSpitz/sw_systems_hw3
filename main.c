@@ -113,7 +113,7 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     for (int i = 0; i < wordSize; i++){
         atbash[i] = toAtbash(word[i]);
     }
-    printf("atbash is: %s" atbash);
+    printf("atbash is: %s", atbash);
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
 }
