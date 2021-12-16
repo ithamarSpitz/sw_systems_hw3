@@ -15,9 +15,8 @@ void minSequenceGematria(char sentence[], int sentenceSize, int gematria){
     int i,j,k,sum, count=0;
     for(i=0; i<sentenceSize; i++){
         sum = 0;
-        if(toAtbash(sentence[i]) == '0'){
-            pritntf("%c", toAtbash(sentence[i]));
-            continue;}
+        if(!toInt(sentence[i]))
+            continue;
         for(j=i; j<sentenceSize; j++){
             sum=sum+toInt(sentence[j]);
             if(sum>gematria) 
