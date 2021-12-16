@@ -151,7 +151,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
     }    
 }
 
-void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
+void anagra(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("enter anagram");
     printf("Anagram Sequences : ");
     minSequenceAnagram(word, wordSize, sentence, sentenceSize);
@@ -179,7 +179,7 @@ int main (void) {
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
-    anagram(word, wordSize, sentence, idx);
+    anagra(word, wordSize, sentence, idx);
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
     return 0;
