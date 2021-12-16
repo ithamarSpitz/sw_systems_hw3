@@ -126,7 +126,6 @@ int main (void) {
         preword[idx] = letter;
         idx++;
         }
-    idx--;
     char word[idx];
     for (int i = 0; i < idx; i++)
        word[i] = preword[i];
@@ -135,7 +134,6 @@ int main (void) {
         presentence[idx] = letter;
         idx++;
         }
-    idx--;
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
