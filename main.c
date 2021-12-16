@@ -15,6 +15,8 @@ void minSequenceGematria(char sentence[], int sentenceSize, int gematria){
     int i,j,k,sum, count=0;
     for(i=0; i<sentenceSize; i++){
         sum = 0;
+        if(sentence[i] == ' ')
+            continue;
         for(j=i; j<sentenceSize; j++){
             sum=sum+toInt(sentence[j]);
             if(sum>gematria) 
@@ -111,7 +113,6 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     for (int i = 0; i < wordSize; i++){
         atbash[i] = toAtbash(word[i]);
     }
-    printf("atbash is: %s\n", atbash);
     printf("Atbash Sequences : ");
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
