@@ -181,6 +181,6 @@ int main (void) {
        sentence[i] = presentence[i];
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
-    anagram(word, wordSize, sentence, idx);
+    // anagram(word, wordSize, sentence, idx);
     return 0;
 }
