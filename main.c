@@ -46,6 +46,46 @@ void gematria(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("\n");
 }
 
+void copy(char arry[], char word[], int wordSize){
+    for (int i = 0; i < wordSize; i++){
+        arry[i] = word[i];
+    }
+}
+
+void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentenceSize){
+    char wordCopy[wordSize];
+    int count = 0, bool = 1;
+    for (int i = 0; i < sentenceSize-wordSize+1; i++){
+        count++;
+        copy(wordCopy, word, wordSize);
+        for (int j = i; j < wordSize; i++){
+            for (int k = 0; k < wordSize; k++){
+                if(wordCopy[k] == sentence[j])
+                    wordCopy[k] = '~';
+            } 
+        }
+        for (int q = 0; q < wordSize; q++){
+            if(wordCopy[q] != '~')
+                bool = 0;
+        }
+        if(bool){
+            if(count)
+                printf("~");
+            for (int k=i; k<wordSize; k++)
+                printf("%c", sentence[k]);
+        }
+        bool =1;
+    }    
+}
+
+void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
+    printf("enter anagram");
+    printf("Anagram Sequences : ");
+    minSequenceAnagram(word, wordSize, sentence, sentenceSize);
+    printf("\n");
+}
+
+
 
 char toAtbash(char c){
   if( (c<65||c>122) || (c>90 && c<97) )
@@ -116,46 +156,10 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("Atbash Sequences : ");
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
+    anagram(word, wordSize, sentence, sentenceSize);
+
 }
 
-void copy(char arry[], char word[], int wordSize){
-    for (int i = 0; i < wordSize; i++){
-        arry[i] = word[i];
-    }
-}
-
-void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentenceSize){
-    char wordCopy[wordSize];
-    int count = 0, bool = 1;
-    for (int i = 0; i < sentenceSize-wordSize+1; i++){
-        count++;
-        copy(wordCopy, word, wordSize);
-        for (int j = i; j < wordSize; i++){
-            for (int k = 0; k < wordSize; k++){
-                if(wordCopy[k] == sentence[j])
-                    wordCopy[k] = '~';
-            } 
-        }
-        for (int q = 0; q < wordSize; q++){
-            if(wordCopy[q] != '~')
-                bool = 0;
-        }
-        if(bool){
-            if(count)
-                printf("~");
-            for (int k=i; k<wordSize; k++)
-                printf("%c", sentence[k]);
-        }
-        bool =1;
-    }    
-}
-
-void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
-    printf("enter anagram");
-    printf("Anagram Sequences : ");
-    minSequenceAnagram(word, wordSize, sentence, sentenceSize);
-    printf("\n");
-}
 
 
 int main (void) {
