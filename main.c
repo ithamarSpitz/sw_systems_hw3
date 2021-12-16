@@ -151,7 +151,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
 }
 
 void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
-    printf("Atbash Sequences : ");
+    printf("Anagram Sequences : ");
     minSequenceAnagram(word, wordSize, sentence, sentenceSize);
     printf("\n");
 }
