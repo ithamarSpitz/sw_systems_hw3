@@ -138,7 +138,7 @@ int main (void) {
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
-    printf("word is: \n %s \n size of word is: %d \n sentence is: \n %s \n sizeof sentence is: %d\n", word,sizeof(word)/sizeof(word[0]),sentence,sizeof(sentence)/sizeof(sentence[0]));
+    printf("word is: \n %s \n size of word is: %d \n sentence is: \n %s \n sizeof sentence is: %d\n", word, wordSize, sentence, idx);
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
     return 0;
