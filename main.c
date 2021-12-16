@@ -37,6 +37,7 @@ void gematria(char word[], int wordSize, char sentence[], int sentenceSize){
     for (int i = 0; i < wordSize; i++){
        word_gematria += toInt(word[i]);
     }
+    printf("word's gematria is: %d\n", word_gematria);
     printf("Gematria Sequences: ");
     minSequenceGematria(sentence, sentenceSize, word_gematria);
     printf("\n");
