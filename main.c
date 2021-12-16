@@ -57,7 +57,7 @@ void minSequenceAtbash(char sentence[], char word[]){
         k=0;
         for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
             if (sentence[j]==word[k]){
-                     k++;                
+                     k++;
                 if (k==sizeof(word)/sizeof(word[0])){
                     for (k=i; k<j; k++)
                        printf("%c", sentence[k]);
