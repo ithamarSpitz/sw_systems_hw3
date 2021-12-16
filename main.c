@@ -119,7 +119,7 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
 }
 
 
-void copy(char arry[], char word[], int wordSize){
+void textCopy(char arry[], char word[], int wordSize){
     for (int i = 0; i < wordSize; i++){
         arry[i] = word[i];
     }
@@ -127,10 +127,10 @@ void copy(char arry[], char word[], int wordSize){
 
 void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentenceSize){
     char wordCopy[wordSize];
-    int count = 0, bool = 1;
+    int count = 0, areEquals = 1;
     for (int i = 0; i < sentenceSize-wordSize+1; i++){
         count++;
-        copy(wordCopy, word, wordSize);
+        textCopy(wordCopy, word, wordSize);
         for (int j = i; j < wordSize; i++){
             for (int k = 0; k < wordSize; k++){
                 if(wordCopy[k] == sentence[j])
@@ -139,15 +139,15 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
         }
         for (int q = 0; q < wordSize; q++){
             if(wordCopy[q] != '~')
-                bool = 0;
+                areEquals = 0;
         }
-        if(bool){
+        if(areEquals){
             if(count)
                 printf("~");
             for (int k=i; k<wordSize; k++)
                 printf("%c", sentence[k]);
         }
-        bool =1;
+        areEquals =1;
     }    
 }
 
