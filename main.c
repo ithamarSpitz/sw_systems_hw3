@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-char preword[30];
-char presentence[256];
 int toInt(char str){
     int value;
         value = str-'`';
@@ -119,6 +117,29 @@ void atbash(char sentence[], char word[]){
 
 
 
-int main(){
-
+int main (void) {
+    char preword[31];
+    char presentence[256];
+    int letter = 0;  
+    int idx = 0; 
+    while ((letter = getchar()) != ' ' && letter != '\n' && letter != '\t'){
+        preword[idx] = letter;
+        idx++;
+        }
+    preword[idx] = '~';
+    char word[idx-1];
+    for (int i = 0; i < idx-2; i++)
+       word[i] = preword[i];
+    idx = 0; 
+    while ((letter = getchar()) != '~'){
+        presentence[idx] = letter;
+        idx++;
+        }
+    presentence[idx] = '~';
+    char sentence[idx-1];
+    for (int i = 0; i < idx-2; i++)
+       sentence[i] = presentence[i];
+    gematria(word, sentence);
+    atbash(sentence, word);
+    return 0;
 }
