@@ -139,6 +139,7 @@ int main (void) {
     char sentence[idx-1];
     for (int i = 0; i < idx-2; i++)
        sentence[i] = presentence[i];
+    printf("word is:\n%s\nsemtence is\n%s\n", word,sentence);
     gematria(word, sentence);
     atbash(sentence, word);
     return 0;
