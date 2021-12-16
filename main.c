@@ -126,18 +126,18 @@ int main (void) {
         preword[idx] = letter;
         idx++;
         }
-    preword[idx] = '~';
-    char word[idx-1];
-    for (int i = 0; i < idx-2; i++)
+    idx--;
+    char word[idx];
+    for (int i = 0; i < idx; i++)
        word[i] = preword[i];
     idx = 0; 
     while ((letter = getchar()) != '~'){
         presentence[idx] = letter;
         idx++;
         }
-    presentence[idx] = '~';
-    char sentence[idx-1];
-    for (int i = 0; i < idx-2; i++)
+    idx--;
+    char sentence[idx];
+    for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
     printf("word is:\n%s\nsemtence is\n%s\n", word,sentence);
     gematria(word, sentence);
