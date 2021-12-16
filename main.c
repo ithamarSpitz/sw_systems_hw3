@@ -52,16 +52,19 @@ char toAtbash(char c){
 }
 
 void minSequenceAtbash(char sentence[], char word[]){
-    int i,j,k;
+    int i,j,k,count=0;
     for(i=0; i<(sizeof(sentence)/sizeof(sentence[0]));i++){
         k=0;
         for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
             if (sentence[j]==word[k]){
                      k++;
                 if (k==sizeof(word)/sizeof(word[0])){
+                    if(count==0)
+                        count++;
+                    else
+                        printf("~");
                     for (k=i; k<j; k++)
                        printf("%c", sentence[k]);
-                    printf("~");
                     break;   
                 }
             }else{
@@ -74,14 +77,18 @@ void minSequenceAtbash(char sentence[], char word[]){
                     break;
             }
         }
+        count=0;
         k=sizeof(word)/sizeof(word[0])-1;
         for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
             if (sentence[j]==word[k]){
                      k--;                
                 if (k==0){
+                    if(count==0)
+                        count++;
+                    else
+                        printf("~");
                     for (k=i; k<j; k++)
                        printf("%c", sentence[k]);
-                    printf("~");
                     break;   
                 }
             }else{
@@ -110,5 +117,5 @@ void atbash(char sentence[], char word[]){
 
 
 int main(){
-// we should change the ~ printing from the end to the begining and not printing before the first time!
+
 }
