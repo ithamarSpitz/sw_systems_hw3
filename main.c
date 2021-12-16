@@ -4,7 +4,7 @@ int toInt(char str){
     int value;
         value = str-'`';
         if (value<0)
-            value = str-'0';
+            value = str-'A'+1;
         if(value>26||value<0)
             value = 0;
     return value;
