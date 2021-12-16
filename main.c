@@ -14,17 +14,20 @@ int toInt(char str){
 
 
 void minSequenceGematria(char str[], int size){
-    int i,j,k,sum=0;
+    int i,j,k,sum=0, count=0;
     for(i=0; i<(sizeof(str)/sizeof(str[0])); i++){
         for(j=i; j<(sizeof(str)/sizeof(str[0])); j++){
             sum=sum+toInt(str[j]);
             if(sum>size) 
                 break;
             if(sum==size){
+                    if(count==0)
+                        count++;
+                    else
+                        printf("~");
                  for(k=i; k<=j; k++){
                     printf("%c", str[k]);
                  }
-                printf("~");
                 break;  
             }
         }
