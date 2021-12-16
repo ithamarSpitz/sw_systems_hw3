@@ -128,8 +128,14 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
     char wordCopy[wordSize];
     int count = 0, areEquals = 1;
     for (int i = 0; i < sentenceSize-wordSize+1; i++){
+        if(sentence[i] == ' ')
+            continue;
         textCopy(wordCopy, word, wordSize);
         for (int j = i; j < wordSize; j++){
+            if(sentence[j] == ' '){
+                wordSize++;
+                continue;
+            }
             for (int k = 0; k < wordSize; k++){
                 if(wordCopy[k] == sentence[j])
                     wordCopy[k] = '~';
