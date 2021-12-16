@@ -11,20 +11,20 @@ int toInt(char str){
 }
 
 
-void minSequenceGematria(char str[], int size){
+void minSequenceGematria(char sentence[], int sentenceSize, int gematria){
     int i,j,k,sum=0, count=0;
-    for(i=0; i<(sizeof(str)/sizeof(str[0])); i++){
-        for(j=i; j<(sizeof(str)/sizeof(str[0])); j++){
-            sum=sum+toInt(str[j]);
-            if(sum>size) 
+    for(i=0; i<sentenceSize; i++){
+        for(j=i; j<sentenceSize; j++){
+            sum=sum+toInt(sentence[j]);
+            if(sum>gematria) 
                 break;
-            if(sum==size){
+            if(sum==gematria){
                     if(count==0)
                         count++;
                     else
                         printf("~");
                  for(k=i; k<=j; k++){
-                    printf("%c", str[k]);
+                    printf("%c", sentence[k]);
                  }
                 break;  
             }
@@ -32,13 +32,13 @@ void minSequenceGematria(char str[], int size){
     }
 }
 
-void gematria(char word[], char sentence[]){
-    int word_size =0;
-    for (int i = 0; i < sizeof(word)/sizeof(word[0]); i++){
-       word_size += toInt(word[i]);
+void gematria(char word[], int wordSize, char sentence[], int sentenceSize){
+    int word_gematria =0;
+    for (int i = 0; i < wordSize; i++){
+       word_gematria += toInt(word[i]);
     }
     printf("Gematria Sequences: ");
-    minSequenceGematria(sentence, word_size);
+    minSequenceGematria(sentence, sentenceSize, word_gematria);
     printf("\n");
 }
 
@@ -52,16 +52,14 @@ char toAtbash(char c){
         return 122-(c-'a');    
 }
 
-void minSequenceAtbash(char sentence[], char word[]){
-    printf("\nsize of word in atbash is: %d\n", sizeof(word)/sizeof(word[0]));
-    printf("\nsize of sentence in atbash is: %d\n", sizeof(sentence)/sizeof(sentence[0]));
+void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceSize){
     int i,j,k,count=0;
-    for(i=0; i<(sizeof(sentence)/sizeof(sentence[0]));i++){
+    for(i=0; i<sentenceSize;i++){
         k=0;
-        for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
+        for (j = i; j <sentenceSize; j++){
             if (sentence[j]==word[k]){
                      k++;
-                if (k==sizeof(word)/sizeof(word[0])){
+                if (k==wordSize){
                     if(count==0)
                         count++;
                     else
@@ -81,8 +79,8 @@ void minSequenceAtbash(char sentence[], char word[]){
             }
         }
         count=0;
-        k=sizeof(word)/sizeof(word[0])-1;
-        for (j = i; j < (sizeof(sentence)/sizeof(sentence[0])); j++){
+        k=wordSize-1;
+        for (j = i; j < sentenceSize; j++){
             if (sentence[j]==word[k]){
                      k--;                
                 if (k==0){
@@ -107,13 +105,13 @@ void minSequenceAtbash(char sentence[], char word[]){
     }
 }
 
-void atbash(char sentence[], char word[]){
+void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("Atbash Sequences : ");
-    char atbash[sizeof(word)/sizeof(word[0])];
-    for (int i = 0; i < (sizeof(word)/sizeof(word[0])); i++){
+    char atbash[wordSize];
+    for (int i = 0; i < wordSize; i++){
         atbash[i] = toAtbash(word[i]);
     }
-    minSequenceAtbash(sentence, atbash);
+    minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
 }
 
@@ -128,8 +126,8 @@ int main (void) {
         preword[idx] = letter;
         idx++;
         }
-    printf("\nindex is: %d\n", idx);
     char word[idx];
+    int wordSize = idx;
     for (int i = 0; i < idx; i++)
        word[i] = preword[i];
     idx = 0; 
@@ -137,12 +135,11 @@ int main (void) {
         presentence[idx] = letter;
         idx++;
         }
-    printf("\nindex is: %d\n", idx);
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
     printf("word is: \n %s \n size of word is: %d \n sentence is: \n %s \n sizeof sentence is: %d\n", word,sizeof(word)/sizeof(word[0]),sentence,sizeof(sentence)/sizeof(sentence[0]));
-    gematria(word, sentence);
-    atbash(sentence, word);
+    gematria(word, wordSize , sentence, idx);
+    atbash(word, wordSize, sentence, idx);
     return 0;
 }
