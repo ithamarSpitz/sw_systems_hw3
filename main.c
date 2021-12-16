@@ -68,7 +68,7 @@ void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceS
                         count++;
                     else
                         printf("~");
-                    for (k=i; k<j; k++)
+                    for (k=i; k<=j; k++)
                        printf("%c", sentence[k]);
                     break;   
                 }
@@ -92,7 +92,7 @@ void minSequenceAtbash(char word[], int wordSize, char sentence[], int sentenceS
                         count++;
                     else
                         printf("~");
-                    for (k=i; k<j; k++)
+                    for (k=i; k<=j; k++)
                        printf("%c", sentence[k]);
                     break;   
                 }
