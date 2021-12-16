@@ -116,7 +116,6 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     printf("Atbash Sequences : ");
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
-    printf("atbash ends\n");
 }
 
 void copy(char arry[], char word[], int wordSize){
@@ -180,10 +179,18 @@ int main (void) {
     char sentence[idx];
     for (int i = 0; i < idx; i++)
        sentence[i] = presentence[i];
-    //printf("word is: \n %s \n size of word is: %d \n sentence is: \n %s \n sizeof sentence is: %d\n", word, wordSize, sentence, idx);
+    int ws = wordSize;
+    int ss = idx;
+    char *wl = word;
+    char *sl = sentence;
     gematria(word, wordSize , sentence, idx);
     atbash(word, wordSize, sentence, idx);
     printf("atbash ends\n");
+    if( wordSize!=ws
+     || ss!=idx
+      || wl != word
+       || sl != sentence)
+        printf("this is the problem");
     anagram(word, wordSize, sentence, idx);
     return 0;
 }
