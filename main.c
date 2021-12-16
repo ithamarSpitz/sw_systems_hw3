@@ -172,6 +172,10 @@ int main (void) {
     char presentence[256];
     int letter = 0;  
     int idx = 0; 
+    int let;
+    while ((let = getchar()) != '~'){
+        printf("%c in gematria is %d\n", let, toInt(let));
+        }
     while ((letter = getchar()) != ' ' && letter != '\n' && letter != '\t'){
         preword[idx] = letter;
         idx++;
