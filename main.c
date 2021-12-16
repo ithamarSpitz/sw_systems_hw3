@@ -137,6 +137,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
                 continue;
             }
             for (int k = 0; k < wordSize; k++){
+                printf("i = %d\nj = %d\nk = %d\n", i, j, k);
                 if(wordCopy[k] == sentence[j])
                     wordCopy[k] = '~';
             } 
