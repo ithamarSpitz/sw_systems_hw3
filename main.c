@@ -169,7 +169,7 @@ void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
 
 int main (void) {
     char preword[31];
-    char presentence[256];
+    char presentence[1024];
     int letter = 0;  
     int idx = 0; 
     /*int let;
