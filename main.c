@@ -112,7 +112,7 @@ void atbash(char word[], int wordSize, char sentence[], int sentenceSize){
     for (int i = 0; i < wordSize; i++){
         atbash[i] = toAtbash(word[i]);
     }
-    printf("Atbash Sequences : ");
+    printf("Atbash Sequences: ");
     minSequenceAtbash(atbash, wordSize, sentence, sentenceSize);
     printf("\n");
 }
@@ -162,7 +162,7 @@ void minSequenceAnagram(char word[], int wordSize, char sentence[], int sentence
 }
 
 void anagram(char word[], int wordSize, char sentence[], int sentenceSize){
-    printf("Anagram Sequences : ");
+    printf("Anagram Sequences: ");
     minSequenceAnagram(word, wordSize, sentence, sentenceSize);
     printf("\n");
 }
